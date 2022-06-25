@@ -1,12 +1,12 @@
 <template>
   <div class="container-fluid mt-3">
     
-
-    <Formulario/>
-     <!--  
+    
+    <!-- <Formulario/> -->
+     
       <Navbar />
       <router-view></router-view>
- -->
+ 
   
   </div>
 </template>
@@ -15,15 +15,15 @@
 
 
 
-import Formulario from './components/Formulario.vue'
+import Navbar from "./components/Navbar.vue";
 
 /* import Navbar from './components/Navbar.vue' */
 
 export default {
   name: 'App',
   components: {
-   Formulario,
-   /*  Navbar */
+   /* Formulario, */
+   Navbar,
   }
 }
 </script>

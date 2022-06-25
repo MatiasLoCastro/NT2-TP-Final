@@ -40,6 +40,13 @@
             </router-link>
           </li>
 
+          <!-- Ruta al componente User Form -->
+         <li class="nav-item">
+            <router-link to="/user-form">
+              <a class="nav-link" href="#">User-Form</a>
+            </router-link>
+          </li>
+
         </ul>
       </div>
     </nav>
