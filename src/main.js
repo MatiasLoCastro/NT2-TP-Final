@@ -10,6 +10,9 @@ import "./form"
 import { router } from "./router"
 import "./axios"
 import store from './store'
+import './globalMixins'
+import './globalfilters'
+
 
 
 Vue.config.productionTip = false

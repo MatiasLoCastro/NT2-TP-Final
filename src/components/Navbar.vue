@@ -1,11 +1,8 @@
 <template>
   <section class="src-components-navbar">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-
-      <router-link to="/">
-        <a class="navbar-brand" href="#">Inicio</a>
-      </router-link>
-
+    <nav class="navbar navbar-expand-lg navbar-info bg-dark">
+      <h1></h1>
+    
       <button
         class="navbar-toggler"
         type="button"
@@ -20,13 +17,6 @@
 
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-          <!-- Ruta al componente Formulario -->
-         <li class="nav-item">
-            <router-link to="/formulario">
-              <a class="nav-link" href="#">Formulario</a>
-            </router-link>
-          </li>
-
            <!-- Ruta al componente Tabla-->
          <li class="nav-item">
             <router-link to="/tabla">
@@ -35,8 +25,8 @@
           </li>
            <!-- Ruta al componente Tabla Vuex -->
          <li class="nav-item">
-            <router-link to="/tablavuex">
-              <a class="nav-link" href="#">Tabla-Vuex</a>
+            <router-link to="/listado">
+              <a class="nav-link" href="#">Listado</a>
             </router-link>
           </li>
 
@@ -50,13 +40,21 @@
 export default {
   name: "src-components-navbar",
   props: [],
-  mounted() {},
+  mounted() {
+     
+  },
   data() {
     return {};
   },
-  methods: {},
+  methods: {  
+     mostrarPosts() {
+        let posts = this.$store.state.posts
+        /* console.error(posts) */
+        return posts
+      },
+    },
   computed: {},
-};
+}
 </script>
 
 <style scoped lang="css">

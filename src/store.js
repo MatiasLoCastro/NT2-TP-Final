@@ -22,20 +22,35 @@ export default new Vuex.Store({
         async guardarPost({commit}) {
             try {
                 await delay(1000)
-                let { data: posts } = await axios('https://6289095c7af826e39e6800fe.mockapi.io/posts')
+                let { data: posts } = await axios('https://6289095c7af826e39e6800fe.mockapi.io/post')
                /*  console.log(posts) */
                 commit('guardarPost',posts)
             }
             catch(error) {
                 console.error(error)
             }
-        },     
+        },
+        async borrarPost({commit},cant) {
+            try {
+                await delay(1000)
+                let { data: posts } = await axios('https://6289095c7af826e39e6800fe.mockapi.io/post')
+               /*  console.log(posts) */               
+                commit('borrarPost',posts,cant)
+            }
+            catch(error) {
+                console.error(error)
+            }
+        },          
     },
     mutations : {
-        guardarPost(state, posts ) {
+        guardarPost(state, posts) {
            /*  console.warn('mutations -> guardarPost', state, posts, new Date().toLocaleString()) */
             state.posts = posts
-        }
+        },
+        borrarPost(state, cant) {
+            /*  console.warn('mutations -> guardarPost', state, posts, new Date().toLocaleString()) */
+             state.posts -= cant
+         },
     }
 })
 

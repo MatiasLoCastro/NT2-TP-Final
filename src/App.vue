@@ -1,13 +1,9 @@
 <template>
   <div class="container-fluid mt-3">
-    
 
-    <Formulario/>
-     <!--  
-      <Navbar />
-      <router-view></router-view>
- -->
-  
+ 
+  <router-view/>
+
   </div>
 </template>
 
@@ -15,25 +11,33 @@
 
 
 
-import Formulario from './components/Formulario.vue'
 
-/* import Navbar from './components/Navbar.vue' */
+
 
 export default {
   name: 'App',
   components: {
-   Formulario,
-   /*  Navbar */
+
   }
 }
 </script>
 
 <style>
-  h1 {
-   
-  }
-  .jumbotron{
-   
-  }
+#app {
+  
+}
+
+#nav {
+ 
+}
+
+#nav a {
+ 
+  color: #2c3e50;
+}
+
+#nav a.router-link-exact-active {
+  color: #42b983;
+}
 
 </style>

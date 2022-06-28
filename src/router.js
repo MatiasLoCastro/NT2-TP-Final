@@ -1,9 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import Formulario from './components/Formulario'
 import Tabla from './components/Tabla'
-import TablaVuex from './components/TablaVuex'
+import Login from './components/Login'
+import Listado from './components/Listado'
+import Error403 from './components/Error403'
 
 
 Vue.use(VueRouter)
@@ -11,9 +12,13 @@ Vue.use(VueRouter)
 export const router = new VueRouter({
     mode: 'history',
     routes : [
-        { path: '/formulario', component: Formulario}, 
+
+        { path: '/', component: Login}, 
         { path: '/tabla', component: Tabla}, 
-        { path: '/tablavuex', component: TablaVuex}, 
+        { path: '/listado', component: Listado},
+        { path: '*', redirect: '/eror403',component:Error403 },
+       /*  { path: '/tabla', component: Tabla, name:"tabla"},  */
         
+          
     ]
 })
