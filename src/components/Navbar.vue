@@ -18,7 +18,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
     
-           <!-- Ruta al componente Listado -->
+           <!-- Ruta al componente ListadoF -->
          <li class="nav-item">
             <router-link to="/listado">
               <a class="nav-link" href="#">Listado</a>
