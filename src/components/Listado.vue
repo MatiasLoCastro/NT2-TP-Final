@@ -4,29 +4,33 @@
     <div class="jumbotron">
       <Navbar/>
       <br>
-      <h2>Listado</h2> 
+      <h2>Listado de Reservas</h2> 
       <hr>
       <hr>
       <br>
-      <input type="text" class="form-control" v-model="criterioDeBusquedaNombre" placeholder="Busqueda por nombre">
       
+      <input type="text" class="form-control my-3" v-model="criterioDeBusquedaNombre" placeholder="Busqueda por nombre">     
+       <button @click="estado1=!estado1" class="btn btn-success my-3">cambiar color de lista</button>
       <br>
+     
       <div v-if="$store.state.posts.length" class="table-responsive">
         <table class="table table-dark">
           <tr>
             <th>id</th>
             <th>Nombre</th>
-            <th>Edad</th>
+            <th>Apellido</th>
             <th>Email</th>
+            <th>Fecha</th>
             <th>Borrar</th>
-
           </tr>
-          <tr v-for="(post, index) in mostrarPosts()" :key="index">
+   
+          <tr v-for="(post, index) in mostrarPosts()" :key="index" :style="getEstilos(estado1)">
               <td>{{ post.id }}</td>
               <td>{{ post.nombre }}</td>
-              <td>{{ post.edad }}</td>
+              <td>{{ post.apellido }}</td>
               <td>{{ post.email }}</td>
-              <td><button class="btn btn-success" @click="borrarPost(post.id)">Borra Usuario</button></td>
+              <td>{{ post.fecha }}</td>
+              <td><button class="btn btn-success" @click="borrarPost(post.id)">Borrar Reserva</button></td>
           </tr>
         </table>
         <h5 class="alert alert-primary">Se encontro {{mostrarPosts().length}} posts</h5>
@@ -50,9 +54,11 @@
     },
     data () {
       return {
+         estado1 : true,
+         estado2 : true,
         criterioDeBusquedaNombre: '',
         posts: [],  
-        url:"https://6289095c7af826e39e6800fe.mockapi.io/post"
+        url:'https://62b8e721ff109cd1dc89476f.mockapi.io/tp-nt2'
       }
     },
      components:{
@@ -61,14 +67,27 @@
     },
     methods: {
             guardarPost() {
-            /*  console.warn('-----------------------------------------')
-            console.warn('dispatch -> incrementar', new Date().toLocaleString())  */
             this.$store.dispatch("guardarPost")
-        },   
+        }, 
+        igualarArrary(){
+            let personF = this.mostrarPost()
+           return personF 
+        },
+        getEstilos(estado) {
+          return { 
+              color: estado? 'green' : 'crimson',
+          }
+      },
+      personasFiltradas() {
+                return this.url.filter((persona) => {
+                    let nombre = `${persona.nombre}`
+                    return nombre.toLowerCase().includes(this.criterioDeBusquedaNombre.toLowerCase())                    
+                });
+            },
     },
     computed: {
        /*  personasFiltradas() {
-                return this.posts.filter((persona) => {
+                return this.url.filter((persona) => {
                     let nombre = `${persona.nombre}`
                     return nombre.toLowerCase().includes(this.criterioDeBusquedaNombre.toLowerCase())                    
                 });

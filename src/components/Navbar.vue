@@ -17,16 +17,18 @@
 
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-           <!-- Ruta al componente Tabla-->
-         <li class="nav-item">
-            <router-link to="/tabla">
-              <a class="nav-link" href="#">Tabla</a>
-            </router-link>
-          </li>
-           <!-- Ruta al componente Tabla Vuex -->
+    
+           <!-- Ruta al componente Listado -->
          <li class="nav-item">
             <router-link to="/listado">
               <a class="nav-link" href="#">Listado</a>
+            </router-link>
+          </li>
+
+          <!-- Ruta al componente User Form -->
+         <li class="nav-item">
+            <router-link to="/user-form">
+              <a class="nav-link" href="#">User-Form</a>
             </router-link>
           </li>
 

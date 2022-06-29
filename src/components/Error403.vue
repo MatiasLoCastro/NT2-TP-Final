@@ -1,7 +1,9 @@
 <template>
 
   <section class="src-components-error-403">
-    <img src="https://www.hostcupon.com/wp-content/uploads/2018/09/error-403.jpeg" alt="">
+    
+  <p>ERROR 403</p>
+  <button class="btn btn-success" @click="volver()">volver</button>
   </section>
 
 </template>
@@ -20,8 +22,13 @@
       }
     },
     methods: {
-
-    },
+       volver() {
+        
+        this.$router.push({
+          path: '/user-form',
+        })
+      },
+       },
     computed: {
 
     }

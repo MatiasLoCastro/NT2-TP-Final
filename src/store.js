@@ -2,8 +2,8 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
 
-const delay = ms => new Promise((resolve,reject) => {
-    if(typeof ms == 'number') {
+const delay = ms => new Promise((resolve, reject) => {
+    if (typeof ms == 'number') {
         setTimeout(resolve, ms)
     }
     else {
@@ -13,27 +13,30 @@ const delay = ms => new Promise((resolve,reject) => {
 
 Vue.use(Vuex)
 
+const URL = 'https://62b8e721ff109cd1dc89476f.mockapi.io/tp-nt2'
+
 export default new Vuex.Store({
-    state : {
-        posts : [],
-        
+    state: {
+        posts: [],
+        reserva: {},
+
     },
-    actions : {
-        async guardarPost({commit}) {
+    actions: {
+        async guardarPost({ commit }) {
             try {
                 await delay(1000)
-                let { data: posts } = await axios('https://6289095c7af826e39e6800fe.mockapi.io/post')
+                let { data: posts } = await axios(URL)
                /*  console.log(posts) */
                 commit('guardarPost',posts)
             }
-            catch(error) {
+            catch (error) {
                 console.error(error)
             }
         },
         async borrarPost({commit},cant) {
             try {
                 await delay(1000)
-                let { data: posts } = await axios('https://6289095c7af826e39e6800fe.mockapi.io/post')
+                let { data: posts } = await axios(URL)
                /*  console.log(posts) */               
                 commit('borrarPost',posts,cant)
             }
@@ -52,5 +55,6 @@ export default new Vuex.Store({
              state.posts -= cant
          },
     }
+
 })
 

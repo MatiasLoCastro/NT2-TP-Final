@@ -42,7 +42,7 @@ export default {
       password: "",
       error: false,
       error_msg: "",
-      url : "https://6289095c7af826e39e6800fe.mockapi.io/post",
+      url : "https://62b8e721ff109cd1dc89476f.mockapi.io/tp-nt2",
     }
   },
   methods:{
@@ -51,16 +51,30 @@ export default {
           "usuario" : this.usuario,
           "password": this.password
         };
-        axios.get("https://6289095c7af826e39e6800fe.mockapi.io/post", json)
+        axios.get("https://62b8e721ff109cd1dc89476f.mockapi.io/tp-nt2", json)
         .then( data =>{
           console.log(data);
           this.$router.push({
-          path: '/tabla',
-          
-          /* params: { id} */
+          path: '/user-form',
            })
         })
-     }
+     },
+  /*     login(){
+        let json = {
+          "usuario" : this.usuario,
+          "password": this.password
+        };
+        axios.post('http://solodata.es/auth', json)
+        .then( data =>{
+           if(data.data.status == "ok"){
+             localStorage.token = data.data.result.token;
+             this.$router.push('dashboard');
+           }else{
+             this.error = true;
+             this.error_msg = data.data.result.error_msg;
+           }
+        })
+    } */
   }
 }
 </script>
